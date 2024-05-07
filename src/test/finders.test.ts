@@ -136,4 +136,30 @@ describe('Finder tests',()=>{
 
     },true);
 
+    function dividableCase(n:number,ns:number[]){
+        return ()=> {
+            const res = DefaultTheNumberFinders.Dividables.find(n);
+            res.forEach(i=>{
+                expect(i).to.be.a('object').to.have.property('type').to.be.a('string').to.be.equal('dividable');
+                expect(i).to.have.property('message').to.be.a('string').to.be.match(/^Is dividable by \d+\.$/);
+                const me = i.message.match(/^Is dividable by (\d+)\.$/);
+                expect(me).to.be.a('array').to.have.lengthOf(2);
+                if(!me) return;
+                const num = parseInt(me[1]);
+                expect(ns).to.include(num);
+            });
+        };
+    }
+
+    it('dividables',()=>{
+
+        inst(dividableCase(10,[5,2]));
+        inst(dividableCase(25,[5]));
+        inst(dividableCase(31,[]));
+        inst(dividableCase(12,[2,3,4,6]));
+        inst(dividableCase(16,[2,4,8]));
+        inst(dividableCase(15,[3,5]));
+
+    },true);
+
 });
