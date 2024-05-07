@@ -5,7 +5,7 @@ const isSquare:Finder = {
     find(n) {
         const root = Math.sqrt(n);
 
-        if(root===Math.floor(root)) return [{message:'Is a square number.',detail:`Square root of ${n} is an integer.`,type:'square'}];
+        if(root===Math.floor(root)) return [{message:'Is a square number.',detail:`Square root of ${n} is an integer.`,type:'square',value:root+''}];
         return [];
     }
 };

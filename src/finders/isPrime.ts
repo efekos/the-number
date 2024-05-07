@@ -9,7 +9,7 @@ const isPrime:Finder = {
 
         for (let i = 2; i < n; i++) lowers.push(i);
 
-        if(lowers.every(v=>n%v!==0)) return [{message:'Is a prime number.',detail:`${n} can't be divided by any other number.`,type:'prime'}];
+        if(lowers.every(v=>n%v!==0)) return [{message:'Is a prime number.',detail:`${n} can't be divided by any other number.`,type:'prime',value:n+''}];
         return [];
     }
 };

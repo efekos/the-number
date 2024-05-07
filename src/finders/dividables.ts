@@ -13,7 +13,7 @@ const dividables:Finder = {
         for (let i = 2; i < n; i++) lowers.push(i);
 
         for (const i of lowers) {
-            if(n%i===0) list.push({message:`Is dividable by ${i}.`,type:'dividable'});
+            if(n%i===0) list.push({message:`Is dividable by ${i}.`,type:'dividable',value:i+''});
         }
 
         memoization[n] = list;
