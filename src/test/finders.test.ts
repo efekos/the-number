@@ -56,27 +56,27 @@ describe('Finder tests',()=>{
 
     it('is odd',()=>{
 
-        inst(finderType(DefaultTheNumberFinders.IdOdd,1,'odd'));
-        inst(finderType(DefaultTheNumberFinders.IdOdd,3,'odd'));
-        inst(finderType(DefaultTheNumberFinders.IdOdd,5,'odd'));
-        inst(finderType(DefaultTheNumberFinders.IdOdd,7,'odd'));
-        inst(finderType(DefaultTheNumberFinders.IdOdd,9,'odd'));
-        inst(finderType(DefaultTheNumberFinders.IdOdd,11,'odd'));
-        inst(finderType(DefaultTheNumberFinders.IdOdd,13,'odd'));
-        inst(finderType(DefaultTheNumberFinders.IdOdd,15,'odd'));
-        inst(finderType(DefaultTheNumberFinders.IdOdd,17,'odd'));
-        inst(finderType(DefaultTheNumberFinders.IdOdd,3456930543,'odd'));
-        inst(finderType(DefaultTheNumberFinders.IdOdd,2493583599,'odd'));
-        inst(finderType(DefaultTheNumberFinders.IdOdd,2496583453,'odd'));
-        inst(finderType(DefaultTheNumberFinders.IdOdd,2469549333,'odd'));
-        inst(finderType(DefaultTheNumberFinders.IdOdd,6790898231,'odd'));
-        inst(none(DefaultTheNumberFinders.IdOdd,2352434));
-        inst(none(DefaultTheNumberFinders.IdOdd,3524322));
-        inst(none(DefaultTheNumberFinders.IdOdd,5746988));
-        inst(none(DefaultTheNumberFinders.IdOdd,3623462));
-        inst(none(DefaultTheNumberFinders.IdOdd,6456774));
-        inst(none(DefaultTheNumberFinders.IdOdd,4969288));
-        inst(none(DefaultTheNumberFinders.IdOdd,3496940));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,1,'odd'));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,3,'odd'));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,5,'odd'));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,7,'odd'));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,9,'odd'));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,11,'odd'));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,13,'odd'));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,15,'odd'));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,17,'odd'));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,3456930543,'odd'));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,2493583599,'odd'));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,2496583453,'odd'));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,2469549333,'odd'));
+        inst(finderType(DefaultTheNumberFinders.IsOdd,6790898231,'odd'));
+        inst(none(DefaultTheNumberFinders.IsOdd,2352434));
+        inst(none(DefaultTheNumberFinders.IsOdd,3524322));
+        inst(none(DefaultTheNumberFinders.IsOdd,5746988));
+        inst(none(DefaultTheNumberFinders.IsOdd,3623462));
+        inst(none(DefaultTheNumberFinders.IsOdd,6456774));
+        inst(none(DefaultTheNumberFinders.IsOdd,4969288));
+        inst(none(DefaultTheNumberFinders.IsOdd,3496940));
 
     },true);
 
