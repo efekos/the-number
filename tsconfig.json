@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "lib",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "declaration": true,
+        "declarationMap": true,
+        "skipLibCheck": true,
+        "target": "ESNext",
+        "lib": ["ESNext"],
+        "strict": true
+    },
+    "include": ["src/**/*.ts"]
+}

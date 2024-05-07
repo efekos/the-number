@@ -1,0 +1,40 @@
+{
+  "name": "the-number",
+  "version": "1.0.0",
+  "description": "Various information about a number",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint ./src/**/*.ts --fix",
+    "prebuild": "npm run lint && node libDeletor.mjs",
+    "build": "tsc",
+    "pretest": "tsc",
+    "test": "estest",
+    "postbuild": "cls && echo Builded"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/efekos/the-number.git"
+  },
+  "keywords": [
+    "number",
+    "numbers"
+  ],
+  "author": "efekos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/efekos/the-number/issues"
+  },
+  "homepage": "https://github.com/efekos/the-number#readme",
+  "devDependencies": {
+    "@efekos/es-test": "^1.0.7",
+    "@types/chai": "^4.3.16",
+    "@types/eslint": "^8.56.10",
+    "@types/node": "^20.12.10",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "chai": "^5.1.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-jsdoc": "^48.2.3"
+  },
+  "type": "module"
+}

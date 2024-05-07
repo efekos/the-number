@@ -1,0 +1,8 @@
+.eslintrc
+lib/test
+libDeletor.mjs
+.gitignore
+src
+tsconfig.json
+tsconfig.eslint.json
+package
