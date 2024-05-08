@@ -3,6 +3,7 @@ import { Finder } from '../types/index.js';
 const isPrime:Finder = {
     limit:false,
     find(n) {
+        if(n!==Math.round(n)) return [];
         if(n <= 1) return [];
 
         const lowers = [];
