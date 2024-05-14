@@ -136,6 +136,20 @@ describe('Finder tests',()=>{
 
     },true);
 
+    it('funi',()=>{
+
+        inst(finderType(DefaultTheNumberFinders.Funny,31,'funny'));
+        inst(finderType(DefaultTheNumberFinders.Funny,62,'funny'));
+        inst(finderType(DefaultTheNumberFinders.Funny,69,'funny'));
+        inst(finderType(DefaultTheNumberFinders.Funny,420,'funny'));
+        inst(none(DefaultTheNumberFinders.Funny,354));
+        inst(none(DefaultTheNumberFinders.Funny,35));
+        inst(none(DefaultTheNumberFinders.Funny,32));
+        inst(none(DefaultTheNumberFinders.Funny,123));
+        inst(none(DefaultTheNumberFinders.Funny,410));
+
+    },true);
+
     function dividableCase(n:number,ns:number[]){
         return ()=> {
             const res = DefaultTheNumberFinders.Dividables.find(n);
