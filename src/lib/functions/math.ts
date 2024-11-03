@@ -28,7 +28,7 @@ export function powerOfFunction(j:number):ComponentParser{
     return (n)=>{
         if(n<=j)return Promise.resolve(null);
         for (let i = 0; i < 31; i++) {
-            let ans = Math.pow(j, i);
+            const ans = Math.pow(j, i);
             if (ans === n) return Promise.resolve({text:`Is power of ${j}`,id:'math'});
         }
         return Promise.resolve(null);

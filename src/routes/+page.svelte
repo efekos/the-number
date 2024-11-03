@@ -11,7 +11,7 @@
     let entriesPromise: Promise<ParseComponentsResult>;
 
 
-    $: if(!input) input = '0'; else if(input.startsWith('0')) input = input.substring(1); else if(input.length>8)input = input.substring(0,8); else if (!input[input.length-1].match(/[.0-9\-]/)) input = input.substring(0,input.length-1)
+    $: if(!input) input = '0'; else if(input.startsWith('0')) input = input.substring(1); else if(input.length>8)input = input.substring(0,8); else if (!input[input.length-1].match(/[.0-9-]/)) input = input.substring(0,input.length-1)
     $: if (input.match(/^-?[1-9](?:[0-9]*)?$/)||input.match(/^0$/)) num = parseInt(input); else if(input.match(/^-?[0-9]*\.[0-9]+$/)) num = parseFloat(input); else entriesPromise = Promise.resolve([]);
     $: if (num !== undefined) entriesPromise = parseComponents(num);
 
