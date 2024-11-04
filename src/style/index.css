@@ -14,6 +14,14 @@ html,body {
     @apply mb-1;
 }
 
+a {
+    @apply text-blue-400 underline;
+}
+
+code {
+    @apply p-1 rounded-md text-sm font-mono bg-neutral-200 text-gray-800;
+}
+
 .category-head {
     animation: from_side 100ms forwards;
 }
