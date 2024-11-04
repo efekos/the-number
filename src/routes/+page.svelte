@@ -37,20 +37,20 @@
     <div class="text-left w-3/4">
         {#await entriesPromise}
             <CategoryHead>
-                <CategoryChild text="LOADING" _class="bg-gray-600 text-gray-950">Gathering information about {input}...</CategoryChild>
+                <CategoryChild text="LOADING" _class="bg-gray-600 text-gray-950" input={`Gathering information about ${input}...`}/>
             </CategoryHead>
         {:then entries}
             {#each entries as entry}
                 <CategoryHead>
                     {#each entry as entryElement}
                         <CategoryChild _class={entryElement.category.colorClass}
-                                       text={entryElement.category.name}>{entryElement.text}</CategoryChild>
+                                       text={entryElement.category.name} input={entryElement.text}/>
                     {/each}
                 </CategoryHead>
             {/each}
             {:catch err}
             <CategoryHead>
-                <CategoryChild text="ERROR" _class="bg-red-600 text-red-950">{err.message}</CategoryChild>
+                <CategoryChild text="ERROR" _class="bg-red-600 text-red-950" input={err.message} />
             </CategoryHead>
         {/await}
     </div>

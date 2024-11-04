@@ -70,8 +70,8 @@ const staticComponentEntries: Record<number, ComponentEntry[]> = {
     ],
     29: [createEntry(categories[1], 'Is the day length of February in leap years.')],
     28: [createEntry(categories[1], 'Is the normal length of February in days.')],
-    0: [createEntry(categories[2], 'Can be considered false.')],
-    1: [createEntry(categories[2], 'Can be considered true.')],
+    0: [createEntry(categories[2], 'Can be considered `false`.')],
+    1: [createEntry(categories[2], 'Can be considered `true`.')],
 }
 
 export type ParseComponentsResult = ComponentEntry[][];

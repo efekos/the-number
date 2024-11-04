@@ -11,7 +11,7 @@ html,body {
 }
 
 .component-margins {
-    @apply mt-1 mb-1;
+    @apply mb-1;
 }
 
 .category-head {
@@ -40,4 +40,8 @@ html,body {
 
 .category-child {
     @apply font-bold select-none text-opacity-0;
+}
+
+p {
+    display: inline;
 }
