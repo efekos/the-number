@@ -6,6 +6,7 @@ import {
     powerOfFunction
 } from "$lib/functions/math";
 import {currentYear, dateParser, decadeAgo, leapYear} from "$lib/functions/time";
+import {createIsDoubleFunction, createIsIntegerFunction} from "$lib/functions/code";
 
 export type ComponentParser = (n:number)=>Promise<ComponentParserResponse|null>;
 
@@ -44,6 +45,20 @@ const categories:LocalComponentCategory[] = [
         name: 'TIME',
         id:'time',
         parsers: [currentYear, decadeAgo, leapYear, dateParser]
+    },
+    {
+        colorClass: 'bg-violet-600 text-violet-950',
+        name: 'CODE',
+        id:'code',
+        parsers:[
+            createIsIntegerFunction('number'),createIsDoubleFunction('number'),
+            createIsIntegerFunction('byte','Java',-128,127),
+            createIsIntegerFunction('short','Java',-32768,32767),
+            createIsIntegerFunction('int','Java & Python'),
+            createIsIntegerFunction('long','Java'),
+            createIsDoubleFunction('double','Java'),
+            createIsDoubleFunction('float','Java & Python'),
+        ]
     }
 ]
 
@@ -69,7 +84,9 @@ const staticComponentEntries:Record<number, ComponentEntry[]> = {
         createEntry(categories[1],'Is the length of November in days.')
     ],
     29: [createEntry(categories[1],'Is the day length of February in leap years.')],
-    28: [createEntry(categories[1],'Is the normal length of February in days.')]
+    28: [createEntry(categories[1],'Is the normal length of February in days.')],
+    0: [createEntry(categories[2],'Can be considered false.')],
+    1: [createEntry(categories[2],'Can be considered true.')],
 }
 
 export type ParseComponentsResult = ComponentEntry[][];
