@@ -20,3 +20,7 @@ export const dateParser:ComponentParser = (n)=>{
 
     return Promise.resolve({id:'time',text:`Represents ${day}${getThing(day)} of ${months[monthI-1]}, ${year}`});
 }
+
+export const currentYear:ComponentParser = (n)=>Promise.resolve(n!==0&&new Date().getFullYear()===n?{text:'Is the current year.',id:'time'}:null);
+export const decadeAgo:ComponentParser = (n)=>Promise.resolve(n!==0&&new Date().getFullYear()-10===n?{text:'Is a decade ago from the current year.',id:'time'}:null);
+export const leapYear:ComponentParser = (n)=>Promise.resolve(n!==0&&n%4===0?{text:'Is a leap year, where February is 29 days',id:'time'}:null);

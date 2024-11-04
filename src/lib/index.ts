@@ -5,7 +5,7 @@ import {
     isPrimeFunction,
     powerOfFunction
 } from "$lib/functions/math";
-import {dateParser} from "$lib/functions/time";
+import {currentYear, dateParser, decadeAgo, leapYear} from "$lib/functions/time";
 
 export type ComponentParser = (n:number)=>Promise<ComponentParserResponse|null>;
 
@@ -34,13 +34,8 @@ const categories:LocalComponentCategory[] = [
         name:'MATH',
         id: 'math',
         parsers: [
-            isOddFunction,
-            isPrimeFunction,
-            isMemberOfCountingNumbers,
-            isMemberOfNaturalNumbers,
-            isMemberOfIntegers,
-            isMemberOfRationals,
-            isMemberOfRealNumbers,
+            isOddFunction, isPrimeFunction, isMemberOfCountingNumbers, isMemberOfNaturalNumbers,
+            isMemberOfIntegers, isMemberOfRationals,isMemberOfRealNumbers,
             ...Array.from({length:10000},(a,_i)=>powerOfFunction(_i+1))
         ]
     },
@@ -48,12 +43,7 @@ const categories:LocalComponentCategory[] = [
         colorClass: 'bg-purple-600 text-purple-950',
         name: 'TIME',
         id:'time',
-        parsers: [
-            (n)=>Promise.resolve(n!==0&&new Date().getFullYear()===n?{text:'Is the current year.',id:'time'}:null),
-            (n)=>Promise.resolve(n!==0&&new Date().getFullYear()-10===n?{text:'Is a decade ago from the current year.',id:'time'}:null),
-            (n)=>Promise.resolve(n!==0&&n%4===0?{text:'Is a leap year, where February is 29 days',id:'time'}:null),
-            dateParser
-        ]
+        parsers: [currentYear, decadeAgo, leapYear, dateParser]
     }
 ]
 
