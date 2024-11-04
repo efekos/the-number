@@ -1,6 +1,4 @@
-import {math,} from "$lib/functions/math";
-import {time} from "$lib/functions/time";
-import {code} from "$lib/functions/code";
+import {math,time,code} from "$lib/functions";
 
 export type ComponentParser = (n: number) => Promise<ComponentParserResponse | null>;
 
