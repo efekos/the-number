@@ -1,4 +1,5 @@
 import {math,time,code} from "$lib/functions";
+import {cache} from "$lib/cache";
 
 export type ComponentParser = (n: number) => Promise<ComponentParserResponse | null>;
 
@@ -89,6 +90,7 @@ const staticComponentEntries: Record<number, ComponentEntry[]> = {
 export type ParseComponentsResult = ComponentEntry[][];
 
 export async function parseComponents(n: number): Promise<ParseComponentsResult> {
+    if(cache.hasCache(n+''))return Promise.resolve(cache.getCache(n+''));
     const result: ParseComponentsResult = [];
 
     for (let i = 0; i < categories.length; i++) {
@@ -108,5 +110,6 @@ export async function parseComponents(n: number): Promise<ParseComponentsResult>
         result.push(entryList);
     }
 
+    cache.cacheValue(n+'',result);
     return Promise.resolve(result);
 }

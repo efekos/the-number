@@ -1,4 +1,4 @@
-import type {ComponentEntry, ParseComponentsResult} from "$lib/index";
+import type { ParseComponentsResult } from "$lib/index";
 
 export namespace cache {
 
