@@ -3,7 +3,8 @@ import {math,time,code} from "$lib/functions";
 export type ComponentParser = (n: number) => Promise<ComponentParserResponse | null>;
 
 interface LocalComponentCategory extends ComponentCategory {
-    parsers: ComponentParser[];
+    parsers?: ComponentParser[];
+    fullParser?: (n:number)=>Promise<ComponentParserResponse[] | null>;
 }
 
 export interface ComponentCategory {
@@ -41,6 +42,17 @@ const categories: LocalComponentCategory[] = [
         name: 'CODE',
         id: 'code',
         parsers: code.allFunctions
+    },
+    {
+        colorClass: 'bg-green-600, text-green-950',
+        name: 'HISTORY',
+        id: 'history',
+        fullParser:async (n)=> {
+            const val = await fetch(`http://localhost:8080/api/v1/the-number/history/${n}`);
+            if(val.status!==200) return [];
+            const res = await val.json();
+            return (res as string[]).map(text=>{return {id:'history',text}})
+        }
     }
 ]
 
@@ -83,9 +95,13 @@ export async function parseComponents(n: number): Promise<ParseComponentsResult>
         const cate = categories[i];
         const entryList: ComponentEntry[] = [];
 
-        for (let j = 0; j < cate.parsers.length; j++) {
+        if('parsers' in cate&&cate.parsers) for (let j = 0; j < cate.parsers.length; j++) {
+            // @ts-ignore because it is guaranteed that categories[i] does have parsers
             const res = await categories[i].parsers[j](n);
-            if (res !== null) entryList.push({...res, category: cate})
+            if (res) entryList.push({...res, category: cate})
+        } else if ('fullParser' in cate&&cate.fullParser) {
+            const res = await cate.fullParser(n);
+            if(res) res.map(o=>{return {...o,category:cate}}).forEach(o=>entryList.push(o))
         }
 
         if (n in staticComponentEntries) staticComponentEntries[n].filter(value => value.id === cate.id).forEach(value => entryList.push(value));
