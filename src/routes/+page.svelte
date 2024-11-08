@@ -26,7 +26,7 @@
 </svelte:head>
 
 <a href="https://github.com/efekos/the-number" target="_blank" rel="noopener noreferrer">
-    <img src="./github_logo.svg" alt="GitHub Logo" class="opacity-50 p-4">
+    <img src="./github_logo.svg" alt="GitHub Logo" class="opacity-20 hover:opacity-40 transition-all p-4">
 </a>
 <br><br><br><br>
 <div class="text-center">
