@@ -44,7 +44,7 @@ const categories: LocalComponentCategory[] = [
         parsers: code.allFunctions
     },
     {
-        colorClass: 'bg-green-600, text-green-950',
+        colorClass: 'bg-green-600 text-green-950',
         name: 'HISTORY',
         id: 'history',
         fullParser:async (n)=> {
