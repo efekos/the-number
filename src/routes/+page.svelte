@@ -25,9 +25,10 @@
     <meta property="og:description" content="The Number is a website where you can write up to an eight-digit number in order to gather all the information about it from different topics such as math, physics, history or facts." />
 </svelte:head>
 
-<a href="https://github.com/efekos/the-number" target="_blank" rel="noopener noreferrer">
-    <img src="./github_logo.svg" alt="GitHub Logo" class="opacity-20 hover:opacity-40 transition-all p-4">
+<a href="https://github.com/efekos/the-number" target="_blank" rel="noopener noreferrer" class="top-logo-wrapper">
+    <img src="./github_logo.svg" alt="GitHub Logo" class="top-logo">
 </a>
+
 <br><br><br><br>
 <div class="text-center">
     <h1 class="text-7xl font-black">The Number</h1>

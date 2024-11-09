@@ -6,6 +6,14 @@ html,body {
     @apply text-lg;
 }
 
+a.top-logo-wrapper {
+    @apply cursor-default fixed top-2 left-2;
+}
+
+.top-logo {
+    @apply scale-50 opacity-15 hover:opacity-25 transition-opacity duration-200 cursor-pointer;
+}
+
 .component-paddings {
     @apply pl-2 pr-2 pt-1 pb-1;
 }
