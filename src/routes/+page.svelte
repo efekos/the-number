@@ -3,17 +3,16 @@
     import CategoryHead from "$lib/components/CategoryHead.svelte";
     import CategoryChild from "$lib/components/CategoryChild.svelte";
     import {parseComponents, type ParseComponentsResult} from "$lib";
-
-    console.log("Hello Chat");
+    export let data: App.PageData;
 
     let input: string = '1';
-    let num: number | undefined;
+    let num: number = 'n' in data && typeof data.n === 'string' ? parseInt(data.n||'1') : 1;
     let entriesPromise: Promise<ParseComponentsResult>;
 
 
     $: if(!input) input = '0'; else if(input.startsWith('0')) input = input.substring(1); else if(input.length>8)input = input.substring(0,8); else if (!input[input.length-1].match(/[.0-9-]/)) input = input.substring(0,input.length-1)
     $: if (input.match(/^-?[1-9](?:[0-9]*)?$/)||input.match(/^0$/)) num = parseInt(input); else if(input.match(/^-?[0-9]*\.[0-9]+$/)) num = parseFloat(input); else entriesPromise = Promise.resolve([]);
-    $: if (num !== undefined) entriesPromise = parseComponents(num);
+    $: entriesPromise = parseComponents(num);
 
 </script>
 
