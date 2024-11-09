@@ -54,6 +54,27 @@ code {
 
 }
 
+@keyframes blink {
+    0% {
+        animation-timing-function: ease-out;
+        opacity: 0;
+    }
+
+    50% {
+        animation-timing-function: ease-in;
+        opacity: .5;
+    }
+
+    100% {
+        animation-timing-function: ease-out;
+        opacity: 0;
+    }
+}
+
+.blink {
+    animation: blink 2.5s infinite;
+}
+
 .category-child {
     @apply font-bold select-none text-opacity-0;
 }

@@ -43,6 +43,8 @@
             <CategoryHead>
                 <CategoryChild text="LOADING" _class="bg-gray-600 text-gray-950" input={`Gathering information about ${input}...`}/>
             </CategoryHead>
+            <br><br>
+            <img src="./favicon.png" width="64" height="64" alt="The Number Logo" class="blink ml-auto mr-auto block">
         {:then entries}
             {#each entries as entry}
                 <CategoryHead>
