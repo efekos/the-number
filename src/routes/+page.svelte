@@ -51,8 +51,10 @@
     <meta property="og:description"
           content="The Number is a website where you can write up to an eight-digit number in order to gather all the information about it from different topics such as math, physics, history or facts."/>
 </svelte:head>
-
 <svelte:window on:load={onWindowLoad}/>
+
+<span class="fixed bottom-2 left-2">v0.1</span>
+
 {#if windowLoaded}
 
     <a href="https://github.com/efekos/the-number" target="_blank" rel="noopener noreferrer" class="top-logo-wrapper">
