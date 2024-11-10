@@ -15,15 +15,15 @@
         if(!res) return '0';
         if(res.startsWith('0')&&res.length>1) res = res.substring(1);
         if(res.endsWith('-')&&res.length>1) res = res.substring(0,res.length-1);
-        if(res.length>8) res = res.substring(0,8);
+        if(res.length>32) res = res.substring(0,32);
 
         let fRes = '';
         for (let i = 0; i < res.length; i++) {
             const char = res[i];
-            if(/[0-9.-]/.test(char))fRes+=char;
+            if(/[0-9-.]/.test(char))fRes+=char;
         }
 
-        return res;
+        return fRes;
     }
 
     function onWindowLoad() {
