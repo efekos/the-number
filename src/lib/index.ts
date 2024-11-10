@@ -29,7 +29,7 @@ const categories: LocalComponentCategory[] = [
         name: 'MATH',
         id: 'math',
         parsers: [
-            ...math.staticFunctions, ...Array.from({length: 10000}, (_a, i) => math.powerOfFunction(i + 1))
+            ...math.staticFunctions, ...Array.from({length: 1000}, (_a, i) => math.powerOfFunction(i + 1))
         ]
     },
     {
@@ -49,10 +49,15 @@ const categories: LocalComponentCategory[] = [
         name: 'HISTORY',
         id: 'history',
         fullParser:async (n)=> {
-            const val = await fetch(`http://localhost:8080/api/v1/the-number/history/${n}`);
-            if(val.status!==200) return [];
-            const res = await val.json();
-            return (res as string[]).map(text=>{return {id:'history',text}})
+            if(n>99999) return [];
+            try {
+                const val = await fetch(`http://localhost:8080/api/v1/the-number/history/${n}`);
+                if(val.status!==200) return [];
+                const res = await val.json();
+                return (res as string[]).map(text=>{return {id:'history',text}})
+            } catch (_ignored) {
+                return [];
+            }
         }
     }
 ]
@@ -91,6 +96,7 @@ export type ParseComponentsResult = ComponentEntry[][];
 
 export async function parseComponents(n: number): Promise<ParseComponentsResult> {
     if(cache.hasCache(n+''))return Promise.resolve(cache.getCache(n+''));
+    if(n===Infinity||n===-Infinity) return Promise.resolve([[createEntry(categories[2], 'Is considered `Infinity` in JavaScript, therefore this website cannot comprehend this number.')]]);
     const result: ParseComponentsResult = [];
 
     for (let i = 0; i < categories.length; i++) {
