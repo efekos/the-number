@@ -38,6 +38,10 @@ code {
     animation: from_side 100ms forwards;
 }
 
+.from-top {
+    animation: from_top 100ms forwards;
+}
+
 .category-head > div:first-child > .category-child  {
     @apply text-opacity-100;
 }
@@ -48,6 +52,23 @@ code {
         animation-timing-function: ease-in;
         opacity: 0;
         transform: translateX(-10px);
+    }
+
+    100% {
+        animation-timing-function: ease-out;
+        opacity: 1;
+        transform: translateZ(0);
+    }
+
+}
+
+
+@keyframes from_top {
+
+    0% {
+        animation-timing-function: ease-in;
+        opacity: 0;
+        transform: translateY(-10px);
     }
 
     100% {

@@ -4,6 +4,7 @@
     import CategoryChild from "$lib/components/CategoryChild.svelte";
     import {parseComponents, type ParseComponentsResult} from "$lib";
     import {replaceState} from "$app/navigation";
+    import Warning from "$lib/components/Warning.svelte";
 
     let input: string;
     let num: number;
@@ -59,6 +60,9 @@
         <br><br>
         <input id="the-number" type="text" bind:value={input}/>
         <span id="is">is...</span>
+        {#if (num+'').length>16}
+            <Warning>Large number, some functions may break.</Warning>
+            {/if}
     </div>
     <br><br>
     <div id="component_stack">
