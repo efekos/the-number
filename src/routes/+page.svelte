@@ -3,6 +3,7 @@
     import CategoryHead from "$lib/components/CategoryHead.svelte";
     import CategoryChild from "$lib/components/CategoryChild.svelte";
     import {parseComponents, type ParseComponentsResult} from "$lib";
+    import {replaceState} from "$app/navigation";
 
     let input: string;
     let num: number;
@@ -10,10 +11,19 @@
     let windowLoaded: boolean = false;
 
     function sanitize(input: string): string {
-        if(!input) return '0';
-        if(input.startsWith('0')) return input.substring(1);
-        if(input.length>8) return input.substring(0,8);
-        return input.replace(/[\sa-zA-Z]/g, '');
+        let res = input;
+        if(!res) return '0';
+        if(res.startsWith('0')&&res.length>1) res = res.substring(1);
+        if(res.endsWith('-')&&res.length>1) res = res.substring(0,res.length-1);
+        if(res.length>8) res = res.substring(0,8);
+
+        let fRes = '';
+        for (let i = 0; i < res.length; i++) {
+            const char = res[i];
+            if(/[0-9.-]/.test(char))fRes+=char;
+        }
+
+        return res;
     }
 
     function onWindowLoad() {
@@ -25,6 +35,11 @@
     $: input = sanitize(input);
     $: if (input.match(/^-?[1-9](?:[0-9]*)?$/) || input.match(/^0$/)) num = parseInt(input); else if (input.match(/^-?[0-9]*\.[0-9]+$/)) num = parseFloat(input); else entriesPromise = Promise.resolve([]);
     $: entriesPromise = parseComponents(num);
+    $: if(windowLoaded) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('n',input);
+        replaceState(url.href,{});
+    }
 
 </script>
 
