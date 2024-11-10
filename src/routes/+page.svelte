@@ -13,15 +13,15 @@
 
     function sanitize(input: string): string {
         let res = input;
-        if(!res) return '0';
-        if(res.startsWith('0')&&res.length>1) res = res.substring(1);
-        if(res.endsWith('-')&&res.length>1) res = res.substring(0,res.length-1);
-        if(res.length>32) res = res.substring(0,32);
+        if (!res) return '0';
+        if (res.startsWith('0') && res.length > 1) res = res.substring(1);
+        if (res.endsWith('-') && res.length > 1) res = res.substring(0, res.length - 1);
+        if (res.length > 32) res = res.substring(0, 32);
 
         let fRes = '';
         for (let i = 0; i < res.length; i++) {
             const char = res[i];
-            if(/[0-9-.]/.test(char))fRes+=char;
+            if (/[0-9-.]/.test(char)) fRes += char;
         }
 
         return fRes;
@@ -29,17 +29,17 @@
 
     function onWindowLoad() {
         const params = new URL(window.location.href).searchParams;
-        input = sanitize(params.get("n")||'1');
+        input = sanitize(params.get("n") || '1');
         windowLoaded = true;
     }
 
     $: input = sanitize(input);
     $: if (input.match(/^-?[1-9](?:[0-9]*)?$/) || input.match(/^0$/)) num = parseInt(input); else if (input.match(/^-?[0-9]*\.[0-9]+$/)) num = parseFloat(input); else entriesPromise = Promise.resolve([]);
     $: entriesPromise = parseComponents(num);
-    $: if(windowLoaded) {
+    $: if (windowLoaded) {
         const url = new URL(window.location.href);
-        url.searchParams.set('n',input);
-        replaceState(url.href,{});
+        url.searchParams.set('n', input);
+        replaceState(url.href, {});
     }
 
 </script>
@@ -60,9 +60,9 @@
         <br><br>
         <input id="the-number" type="text" bind:value={input}/>
         <span id="is">is...</span>
-        {#if (num+'').length>16}
+        {#if (num + '').length > 16}
             <Warning>Large number, some functions may break.</Warning>
-            {/if}
+        {/if}
     </div>
     <br><br>
     <div id="component_stack">

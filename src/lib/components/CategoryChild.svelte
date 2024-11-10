@@ -1,9 +1,9 @@
 <script lang="ts">
     import Markdown from "$lib/components/Markdown.svelte";
 
-    export let _class:string;
-    export let text:string;
-    export let input:string;
+    export let _class: string;
+    export let text: string;
+    export let input: string;
 </script>
 
 <div class="component-margins">

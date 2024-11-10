@@ -2,9 +2,9 @@
     import {marked} from "marked";
 
     export let text: string;
-    let parsePromise: Promise<string>|string;
+    let parsePromise: Promise<string> | string;
 
-    $: parsePromise = marked(text||'');
+    $: parsePromise = marked(text || '');
 </script>
 
 {#await parsePromise}

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html,body {
+html, body {
     @apply lg:text-lg sm:text-sm;
 }
 
@@ -42,7 +42,7 @@ code {
     animation: from_top 100ms forwards;
 }
 
-.category-head > div:first-child > .category-child  {
+.category-head > div:first-child > .category-child {
     @apply text-opacity-100;
 }
 
@@ -109,7 +109,7 @@ p {
 }
 
 #is {
-   @apply text-2xl md:text-3xl lg:text-4xl font-black;
+    @apply text-2xl md:text-3xl lg:text-4xl font-black;
 }
 
 #the-number {
