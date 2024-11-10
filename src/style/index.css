@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html,body {
-    @apply text-lg;
+    @apply lg:text-lg sm:text-sm;
 }
 
 #component_stack {
@@ -88,15 +88,15 @@ p {
 }
 
 #is {
-   @apply text-4xl font-black;
+   @apply text-2xl md:text-3xl lg:text-4xl font-black;
 }
 
 #the-number {
-    @apply text-7xl font-bold text-center focus:outline-none w-full h-1/4 outline-none;
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold text-center focus:outline-none w-full h-1/4 outline-none;
 }
 
 .title {
-    @apply text-7xl font-black;
+    @apply text-4xl md:text-5xl lg:text-6xl font-black;
 }
 
 .loading-logo {
