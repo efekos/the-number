@@ -16,9 +16,7 @@ export namespace util {
 
     export async function isPrime(num: number): Promise<boolean> {
         for (let i = 2; i < (num/2); i++) {
-            if (num % i === 0) {
-                return false;
-            }
+            if (num % i === 0 || num > 100_000) return false;
         }
 
         return true;
