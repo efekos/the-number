@@ -43,14 +43,6 @@
 
 </script>
 
-<svelte:head>
-    <title>The Number</title>
-    <meta name="og:title" content="The Number"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://efekos.dev/the-number"/>
-    <meta property="og:description"
-          content="The Number is a website where you can write up to an eight-digit number in order to gather all the information about it from different topics such as math, physics, history or facts."/>
-</svelte:head>
 <svelte:window on:load={onWindowLoad}/>
 
 <span class="fixed bottom-2 left-2">v0.1</span>
