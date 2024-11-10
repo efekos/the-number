@@ -6,6 +6,10 @@ html,body {
     @apply text-lg;
 }
 
+#component_stack {
+    @apply flex justify-center;
+}
+
 a.top-logo-wrapper {
     @apply cursor-default fixed top-2 left-2;
 }
@@ -81,4 +85,20 @@ code {
 
 p {
     display: inline;
+}
+
+#is {
+   @apply text-4xl font-black;
+}
+
+#the-number {
+    @apply text-7xl font-bold text-center focus:outline-none w-full h-1/4 outline-none;
+}
+
+.title {
+    @apply text-7xl font-black;
+}
+
+.loading-logo {
+    @apply block blink ml-auto mr-auto;
 }

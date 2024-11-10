@@ -63,14 +63,13 @@
 
     <br><br><br><br>
     <div class="text-center">
-        <h1 class="text-7xl font-black">The Number</h1>
-        <br><br><br><br><br>
-        <input class="text-6xl font-bold text-center focus:outline-none w-full h-1/4 outline-none" type="text"
-               bind:value={input}/>
-        <span>is...</span>
+        <h1 class="title">The Number</h1>
+        <br><br>
+        <input id="the-number" type="text" bind:value={input}/>
+        <span id="is">is...</span>
     </div>
     <br><br>
-    <div id="component_stack" class="flex justify-center ">
+    <div id="component_stack">
         <div class="text-left w-3/4">
             {#await entriesPromise}
                 <CategoryHead>
@@ -78,8 +77,7 @@
                                    input={`Gathering information about ${input}...`}/>
                 </CategoryHead>
                 <br><br>
-                <img src="./favicon.png" width="64" height="64" alt="The Number Logo"
-                     class="blink ml-auto mr-auto block">
+                <img src="./favicon.png" width="64" height="64" alt="The Number Logo" class="loading-logo">
             {:then entries}
                 {#each entries as entry}
                     <CategoryHead>
@@ -98,5 +96,5 @@
     </div>
 
 {:else}
-    <img src="./favicon.png" alt="The Number Logo" class="blink ml-auto mr-auto mt-5 block">
+    <img src="./favicon.png" alt="The Number Logo" class="loading-logo mt-5">
 {/if}
